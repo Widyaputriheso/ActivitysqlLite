@@ -16,13 +16,25 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TemanAdapter adapter;
     private ArrayList<Teman> temanArrayList;
+
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static String url_select  = "http://10.0.2.2/umyTI/bacatemen.php";
+    public  static final String TAG_ID = "id";
+    public  static final String TAG_NAMA = "nama";
+    public  static final String TAG_Telpon = "telpon";
+
+
     DBController controller = new DBController(this);
     String id,nm,tlp;
     private FloatingActionButton fab;
+
+
 
 
     @Override
@@ -37,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
